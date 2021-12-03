@@ -1,0 +1,1489 @@
+%remember #include somthing is a sentence ends with ; 
+#include"/home/wmc/doc/osc/basic.osc";
+%#include"/home/orkesh/doc/osc/basic.osc";
+
+!\title{note : A simple derivation of Lindblad equation}
+!\author{Orkesh Nurbolat}
+!\maketitle
+
+% These are the local definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+hH hat H ; 
+hA hat A;
+hS hat S;
+hB hat B;
+hO hat O;
+hJ hat J;
+hL hat L;
+SB S B;
+hr hat rho ; 
+ao hat a; 
+ad cont ao ; 
+bo hat b; 
+bd cont bo ; 
+kp k prime ; 
+kpp k dprime ;
+tp t prime;
+tpp t dprime;
+np n prime ; 
+npp n dprime ; 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+! S(principal) and B(bath) are 2 system in 
+$ maH_S  ;! and 
+$ maH_B ; 
+
+
+@@
+  hH(t)
+&=
+	hH_s otms One_B 
+	+ One_S otms hH_B
+	+ al hH_{S B}
+;
+
+! for the sake of simplicity :
+@@ lab 'hamDef' 
+  hH(t) = hH_S + H_B + al hH_SB
+;
+
+! there is :
+@@
+  dd {hr_SB} t
+&=
+	- ii /hb bb{
+		hH_S + hH_B + al hH_SB , hr_SB
+	}
+;
+
+! Hamiltonian is timed as :
+@@
+  hH(t) 
+&= 
+	exp{i by hb (hH_S + hH_B)t}
+	hH_SB
+	exp{ - i by hb (hH_S + hH_B)t}
+;
+
+@@
+! while the : 
+@@
+  hr(t)
+&=
+	exp{i by hb (hH_S + hH_B)t}
+	hr_SB
+	exp{ - i by hb (hH_S + hH_B)t}
+\\
+	hr_SB(t)
+&=
+	exp{- i by hb (hH_S + hH_B)t}
+	hr
+	exp{ i by hb (hH_S + hH_B)t}
+;
+! \textbf{note }
+! that on the rear end of an equation , central elements are not
+! timed , they are the things at a certain constant time . \\
+
+@@
+  dd{hr(t)} t
+& = 
+	- ii // hb bb{hH(t) , hr(t) }
+;
+! noting that : 
+
+@@
+  hr_S (t)
+&=
+	trr B { hr_SB(t)}
+;
+
+! and then we have  that
+
+@@
+  hr(t)
+&=
+	hr(0) - ii//hb al int_0 ^t bb{ 
+		hH(t prime) , hr(t prime)	
+	} der t prime
+;
+
+@@ lab "canUseBornApprox"
+ dd { hr(t)} t
+&=
+	- ii al // hb bb { hH(t) , hr(0)}
+	- {al ^2}//{hb ^2} bb{ 
+		hH(t) , 	
+		int_0 ^t 
+			bb{	hH(t prime) , hr(t prime)	}
+		der t prime
+	}
+;
+
+!considering the relationship between the SB and the S
+! we know that : 
+
+
+! being aware that  : 
+
+
+! so here what we care about is that : 
+! 
+
+@@
+&	exp{- i by hb (hH_S + hH_B)t} bp{
+		bb{
+			hH , hr
+		}
+	} exp{i by hb (hH_S + hH_B)t} 
+\\ &=
+	exp{- i by hb (hH_S + hH_B)t} bp{
+		hH  hr  
+	} exp{i by hb (hH_S + hH_B)t} 
+	- exp{- i by hb (hH_S + hH_B)t} bp{
+		 hr hH
+	} exp{i by hb (hH_S + hH_B)t} 
+;
+! and in this contex what I know is that  :
+@@ lab 'trickEquation'
+	& 
+	exp{- i by hb (hH_S + hH_B)t} bp{
+		hH  hr  
+	} exp{i by hb (hH_S + hH_B)t} 
+\\ & = 
+	bp {
+		exp{- i by hb (hH_S + hH_B)t} 
+			hH 
+		exp{i by hb (hH_S + hH_B)t} 
+	} 
+ bp{ 
+		exp{-i by hb (hH_S + hH_B)t} 
+			hr  
+		exp{i by hb (hH_S + hH_B)t} 
+	}
+;
+
+! by the \eqref{trickEquation} , we know that this can be done so by this we can say that  
+
+@@
+	exp{- i by hb (hH_S + hH_B)t} bb{
+		hH  , hr  
+	} exp{i by hb (hH_S + hH_B)t} 
+& = 
+	bb {
+ 		hH(t)  , hr(t) 
+	}
+;
+! note that here the first expression starts from 
+! a moment there is no time on it , 
+! the time is given by the evaluation
+! we can have the \textbf{Born Approximation} applied to \eqref{canUseBornApprox} \\ 
+! now we like to cut the bath part out of the picture	 , so we are going to do an trace over it :
+
+%@@
+%  dd void t hr_S (t)
+%&=
+%	trr B{
+%		 hr(t)
+%	} 
+%\\ & = 
+%	trr B {
+%		{ - ii al } / hb 
+%		bb {
+%			hH(t) , hr(0)	
+%		}
+%	}
+%	- dfrac {al ^2}  {hb ^2} 
+% trr B  {
+%	hH(t) , 	
+%	int _0  ^t 
+%		bb{	hH(t prime) , hr(t prime)	}
+%		der t prime
+% }
+%	
+%;
+
+! according to the auther : 
+$ hH ; ! is defined by the 
+$ hH_S , hH_B  ; ! and the interaction term as shown as
+! \eqref{hamDef} , so there is a way to define 
+$ hH_S , hH_B ;
+! without losing generality , so that
+@@
+	trr B{
+		{ - ii al } / hb 
+		bb {
+			hH(t) , hr(0)	
+		}
+	} = 0
+;
+! if that is true then we could have that : 
+@@ lab 'defRhoSys'
+  dd {hr_S (t)} t 
+& = 
+	- {al ^2}//{hb ^2} 
+ trr B {
+	hH(t) , 	
+	int_0 ^t 
+		bb{	hH(t prime) , hr(t prime)	}
+	der t prime
+ }
+;
+
+! integrating \refeq{defRhoSys} from 
+$ t ; ! to the  
+$ t prime ; !yelds: 
+@@
+	hr_S (t prime) - hr_S (t)
+& =
+	- {al ^2}//{hb ^2} 
+	int_{t} ^{tp}
+		trr B {
+			hH(np) , 	
+			int_0 ^{np} 
+				bb{	hH(t dprime) , hr(t dprime)	}
+			der t dprime
+		}
+	der np 
+;
+! or integing
+$ tp ; ! to the  
+$ t ; !yelds: 
+@@
+	hr_S (t) - hr_S (tp)
+& =
+	- {al ^2}//{hb ^2} 
+	int_{tp} ^{t}
+		trr B {
+			hH(np) , 	
+			int_0 ^{np} 
+				bb{	hH(t dprime) , hr(t dprime)	}
+			der t dprime
+		}
+	der np  
+;
+!difference of 
+$ hr(t) ; ! and  
+$ hr(t prime) ; ! is of magnitude of 
+$ al ^2 ; ! so primiary time equation could be writen in the folowing 
+! ways without violationg \textbf{Born approximation}
+@@
+  dd {hr_S (t)} t
+& = 
+	- {al ^2} // {hb ^2} trr B {
+		hH(t) , int_0 ^t bb{
+			hH(t prime)  , hr(t)
+		} der {t prime}
+	}
+;
+
+! lets say Bath and System are in full interaction( 
+$ al = 1  ;! )  , and this is an approximation , so there is : 
+
+@@
+  dd {hr_S (t)} t 
+& = 
+	- 1//{hb ^2} 
+ trr B {
+	hH(t) , 	
+	int_0 ^t 
+		bb{	hH(t prime) , hr(t )	}
+	der t prime
+ }
+;
+
+! writing that, (ignoreing Bath Hamiltionain time as well)
+@@
+  hr(t) & = hr_S (t) otms hr_B(t)
+	\\ & = hr_S (t) hr_B(t)
+;
+! and take the time to be infinitly long , then  : 
+@@ lab "eqDensity"
+  dd {hr_S (t)} t 
+& = 
+	- 1//{hb ^2} 
+ trr B {
+	hH(t) , 	
+	int_0 ^inf 
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+	der t prime
+ }
+;
+
+! \section {LINDBLAD EQUATION}
+!\subsection{Hamiltionians and Operators}
+! so there is :
+
+@@ lab 'systemHamSB'
+  hH_SB
+& = hb bp{
+		hS cont hB + cont hS hB
+	}
+;
+
+! of course with multiple expreseion of 
+$ hS  ; 
+! it could be expressed as : 
+! so : 
+@@
+  hH_SB
+& = hb sum bp{
+		hL cont hB + cont hL hB
+	}
+;
+! and then this 
+$ hL ; ! is system and Bath related , 
+! how does it have in the system is not interested 
+
+@@
+  hS(t)  = hS
+;
+! is not aggected by the interaction-picture frame ,
+! defining the bath is a bath of  bosons :  
+@@
+ hH_B & = hb sum_k
+ 	om_k ad_k ao_k 	
+;
+! so the bath have
+$ k ; ! modes , and 
+$ ad , ao  ; ! creates or annihilates them 
+! but the operator
+@@
+  hB = sum_k conj g_k ao_k
+;
+! is not
+$ hH_B ;! and here  
+$ g_k ;  ! is said to be complex coefficients represing coupling constants
+! then , in the interaction picture,(of course here
+$ hH_S + hH_B  ; 
+! is not used but only that the 
+$ hH_B ; 
+! is used )
+
+@@ lab 'timeB'
+  hB(t) & =
+		exp{ ii by hb hH_B t }
+			hB
+		exp{- ii by hb hH_B t }
+;
+
+! in \eqref{timeB}  , taylor slicing it gives 
+! the exp parts eventually fill my hand with :
+@@
+  hB(t)
+& = 
+		exp{ ii by hb hH_B t }
+			hB
+		exp{- ii by hb hH_B t }
+
+\\ & = 
+	sum_{k} 
+		exp{sum_kp  ii  bp {   om_kp ad_kp ao_kp } t }
+		conj g_{k}  ao_{k}
+		exp{ - sum_kpp ii  bp {   om_kpp ad_kpp ao_kpp } t }
+%\\ &=
+%	sum_k conj g_k ao_k exp{ - ii om_k t }
+;
+
+! for the boson we know that : 
+@@
+	bb {
+		ao_k , ao_kp 
+	}	 & = 0 \\  
+	
+	bb {
+		ao_k , ad_kp 
+	}	 & = dlt_{ k , kp} \\  
+
+	bb {
+		ad_kp , ao_k 
+	}	 & = - dlt_{ k , kp} \\  
+
+	
+	bb {
+		ad_kp ao_kp , ao_k 
+	}	 & = 
+		bb {
+			ad_kp , ao_k 
+		} ao_kp 
+		+ ad_kp bb {
+			ao_kp , ao_k	
+		} = - dlt_{ k , kp} ao_kp \\  
+
+;
+! however there is :
+@@
+  bb{
+		ad_n ao_n ad_m ao_m ,
+		ao_k
+	}
+& = bb{
+		ad_n ao_n , ao_k
+	} ad_m ao_m	
+	+ ad_n ao_n bb{
+		ad_m  ao_m , ao_k
+	}
+\\ & = dlt_{n,k} ao_k ad_m ao_m	
+	+ dlt_{m,k} ad_n ao_n   ao_k
+;
+
+! taking it another step further , we have : 
+! we  also remind ourself that here we could really just take that things, and ofcourse  this S is an arbitary, prod operation will do it in a sorted fashion
+!given partial ordered Set, each element of it is impicitly corresponded to a Natural number 
+@@ lab 'prodadao'
+  bb{
+		prod _{ z in S}
+			ad_z ao_z
+		 , ao_k
+	}
+&=
+	sum_{z in S }
+	dlt_{z,k}
+	bp {
+		prod _{m in S '\wedge ' m subset z}
+		ad_m ao_m
+	}
+	ao_k
+	bp { prod _{n in S '\wedge ' n supset z}
+		ad_n ao_n
+	}
+\\ &=
+	sum_{z in S }
+	dlt_{z,k}
+	ao_k
+	bp {
+		prod _{m in S '\wedge ' m subset z}
+		(ad_m ao_m  -dlt_{ m ,k } ao_k)
+	}
+	bp { prod _{n in S '\wedge ' n supset z}
+		ad_n ao_n
+	}
+; 
+!switching the perspective gives : 
+@@
+  bb { hH_B  , ao_k}
+&=
+	-  hb om_k ao_k
+\\
+  bb { hH_B ^2  , ao_k}
+&=
+	- hb om_k bp {
+		ao_k hH_B + hH_B ao_k
+	}
+\\
+  bb { hH_B ^n  , ao_k}
+&=
+	- hb om_k 
+	sum_i ^n 
+	bp {
+		prod_{m=0} ^{i-1} hH_B
+	}
+	ao_ k 
+	bp {
+		prod_{l=i+1} ^n hH_B
+	}
+\\ &=
+	- hb om_k ao_k 
+	sum_i ^n 
+	bp {
+		prod_{m=0} ^{i-1} hH_B -  hb om_k ao_k
+	}
+	bp {
+		prod_{l=i+1} ^n hH_B
+	}
+;
+! now : 
+@@
+  bb {
+		exp {
+			ii hH_B t by hb
+		}
+		 , ao_k
+	}
+& = 
+	sum_n {
+		bb{
+			(ii hH_B t by hb) ^n
+			,
+			ao_k
+		}
+	}/ {n clmx}
+\\ & = 
+		sum_n {
+			(ii  t by hb) ^n
+			bb{
+				 hH_B  ^n
+				,
+				ao_k
+			}
+		}/ {n clmx}
+
+\\ & = 
+		sum_n {
+			(ii  t by hb) ^n
+			bp { - hb om_k  
+				sum_i ^n 
+					hH_B ^{i-1} 
+					ao_k
+					hH_B ^{n-i}
+			}
+		}/ {n clmx}
+;
+! and 
+@@
+  bb {
+		exp {
+			ii hH_B t by hb
+		}
+		 , ao_k
+	}
+	exp {
+		- ii hH_B t by hb
+	}
+& = 
+		sum_n sum_m {
+			(-1) ^m
+			(ii  t by hb) ^{n+m}
+			bp { - hb om_k  
+				sum_i ^n 
+					hH_B ^{i-1} 
+					ao_k
+					hH_B ^{n-i}
+			}
+			hH_B ^m
+
+		}/ {n clmx m clmx}
+
+\\ & = 
+		sum_n sum_m {
+			(-1) ^m
+			(ii  t by hb) ^{n+m}
+			bp { - hb om_k ao_k
+				sum_i ^n 
+					(hH_B ^{i-1} -hb om_k ao_k) 
+					hH_B ^{n-i}
+			}
+			hH_B ^m
+
+		}/ {n clmx m clmx}
+;
+
+;
+! for its nth compond ,it has alot of \eqref{prodadao}
+
+
+	
+! ok , lets just use the CBH formula here 
+! which states that:
+@@
+ mu(t) &= 	exp{ la t} mu exp {- la t} \\
+ dd {mu(t)} t  &= 	dd exp{ la t} t  mu exp {- la t} + 
+ 	exp{ la t}   mu dd exp {- la t} t \\
+\\ &=
+	exp{la t }  bp { la mu  -  mu la } exp{ -la t}
+\\ &=
+	exp{la t } bb{ la , mu }  exp{ -la t}
+;
+! expanding at 
+@@
+	ddn {mu(t)} t 2
+&= 
+	exp{la t }bb{ la bb{ la , mu }}  exp{ -la t}
+
+;
+
+! now expanding the 
+$ mu(t) ; 
+! from the time 0 gives
+
+@@
+  mu(t) = mu + [la , mu] t + 1/{2 clmx} [la ,[la,mu]] t ^2 + ......
+;
+
+! well now , we know that if 
+@@
+  la = ii hH by  hb \\
+	mu = ao_k
+;
+! so 
+@@
+  [la , mu ] = - ii om_k ao_k \\
+  [la , [la , mu ]] = (- ii om_k) ^2 ao_k
+;
+! so that :
+@@
+  exp{ ii hH_B t by hb }
+	ao_k
+  exp{ - ii hH_B t by hb }
+&= 
+	ao_k bp{
+		sum_n {(-ii om_k t) ^n} // {n clmx}
+	}
+\\ &=
+	ao_k exp{ -ii om_k t }
+;
+! so then  we had
+
+@@
+  hB(t)
+= sum_k 
+	conj g_k ao_k exp{-ii om_k t }
+;
+
+! now with that 
+@@
+  hH_SB = hb bp{
+		hS cont hB + cont hS hB
+	}
+;
+! this 
+$ hB; ! is a resemble of Jaynes-Cummings model , which is like : 
+@@
+  hH  
+&=
+	hb bp{ ad ao + 1/2 } + hb bp { bd bo  + 1/2 }
+	+  g bp { ad bo + bd ao}
+;
+! and then lokoing back to the denity matrix \eqref{eqDensity}
+! now we want to study that the comutation part : 
+@@
+  bb {
+	hH(t) , 	
+	int_0 ^t 
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+	der t prime
+ }
+&= 
+	int_0 ^t 
+  bb {
+	hH(t) , 	
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+ }
+	der t prime
+;
+
+! the part that cared about is :
+! by the way , is there  :
+$ hr_S (t) hr_B = hr_B hr_S (t) ; 
+!? well I dont think so , becaue 
+$ hr_S (t) hr_B = hr_S (t) otms hr_B ; 
+$ hr_S (t) = hr_S (t) otms One_B ; ! and 
+$ hr_B = One_S otms hr_B ; ! is what it means 
+@@ lab 'expandedHamComute'
+  bb {
+	hH(t) , 	
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+ 	}
+& = 
+  hb bb {
+		hS cont hB + cont hS 
+		, 	
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+ 	}
+\\ & = 
+  hb bb {
+		hS cont hB 
+		, 	
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+ 	}
+  + hb bb {
+		 cont hS hB
+		, 	
+		bb{	hH(t prime) , hr_S (t )	 hr_B}
+ 	}
+;
+! lets say for the part that
+@@
+&  bb {
+		hS cont hB (t)
+		,
+		bb {
+			hH(tp) 
+			,
+			hr_S (t) hr_B
+		}
+	}
+\\ & = 	
+  hb bb {
+		hS cont hB (t)
+		,
+		bb {
+			hS cont hB (tp) + cont hS hB(tp)
+			,
+			hr_S (t) hr_B
+		}
+	}
+\\ & = 	
+	hb bp {
+		hS cont hB (t)
+		bb {
+			hS cont hB (tp) + cont hS hB(tp)
+			,
+			hr_S (t) hr_B
+		}
+		-
+		bb {
+			hS cont hB (tp) + cont hS hB(tp)
+			,
+			hr_S (t) hr_B
+		}
+		hS cont hB (t)
+	}
+\\ & = 
+	hb bp {
+		hS cont hB (t)    hS cont hB (tp)   hr_S (t) hr_B
+		+ hS cont hB (t)  cont hS hB(tp)   hr_S (t) hr_B
+		-hS cont hB (t)     hr_S (t) hr_B		hS cont hB (tp) 
+		- hS cont hB (t)    hr_S (t) hr_B   cont hS hB(tp) 
+	}
+\\ & - hb bp{
+		      hS cont hB (tp)   	hr_S (t) hr_B   hS cont hB (t)
+		+   	cont hS hB(tp)   	hr_S (t) hr_B   hS cont hB (t)
+		-     hr_S (t) hr_B			hS cont hB (tp) hS cont hB (t)
+		-     hr_S (t) hr_B   		cont hS hB(tp) hS cont hB (t)
+	}
+;
+! grouping similiar terms here gives: 
+! so there is 
+$ [ hr_b , hS ] = 0  , ; 
+$ [ hr_S (t) , hS ] neq 0  ,  ; 
+$ [ hr_b , hB ] neq 0  , ; 
+$ [ hr_S (t) , hB ] = 0  ; 
+! we can then have 
+@@
+&  bb {
+		hS cont hB (t)
+		,
+		bb {
+			hH(tp) 
+			,
+			hr_S (t) hr_B
+		}
+	}
+\\ & = 
+	hb bp {
+		hS hS hr_S (t) cont hB (t) cont hB (tp)  hr_B
+		+ hS cont hS hr_S (t) cont hB (t)  hB(tp)  hr_B
+		-hS  hr_S (t) hS cont hB (t)  hr_B	cont hB (tp) 
+		- hS hr_S (t) cont hS  cont hB (t)    hr_B   hB(tp) 
+	}
+\\ & - hb bp{
+		      hS   	hr_S (t) hS cont hB (tp) hr_B   cont hB (t)
+		+   	cont hS hr_S (t) hS hB(tp)   	hr_B   cont hB (t)
+		-     hr_S (t) hS hS hr_B			cont hB (tp) cont hB (t)
+		-     hr_S (t) cont hS hS hr_B   		hB(tp) cont hB (t)
+	}
+;
+;
+
+! and on the other wing we have some similiar :
+@@
+&  bb {
+		cont hS hB(t)
+		,
+		bb {
+			hH(tp) 
+			,
+			hr_S (t) hr_B
+		}
+	}
+\\ & = 
+	hb bp {
+		  cont hS hB(t)    	hS cont hB (tp)  hr_S (t) hr_B
+		+ cont hS hB(t)  		cont hS hB(tp)  hr_S (t) hr_B
+		- cont hS hB(t)   	hr_S (t) hr_B		hS cont hB (tp) 
+		- cont hS hB(t)    	hr_S (t) hr_B   	cont hS hB(tp) 
+	}
+\\ & - hb bp{
+		      hS cont hB (tp)   	hr_S (t) hr_B   cont hS hB(t)
+		+   	cont hS hB(tp)   	hr_S (t) hr_B   cont hS hB(t)
+		-     hr_S (t) hr_B			hS cont hB (tp) cont hS hB(t)
+		-     hr_S (t) hr_B   		cont hS hB(tp) cont hS hB(t)
+	}
+;
+! re arranging it to :
+@@
+\\ & = 
+	hb bp {
+		  cont hS hS hr_S (t) hB(t)  cont hB (tp)   hr_B
+		+ cont hS 	cont hS hr_S (t) hB(t)  	hB(tp)  hr_B
+		- cont hS hr_S (t) hS hB(t)   	hr_B		cont hB (tp) 
+		- cont hS hr_S (t) cont hS hB(t)    	hr_B   	hB(tp) 
+	}
+\\ & - hb bp{
+		      hS 			hr_S (t) cont hS cont hB (tp)  hr_B  hB(t)
+		+   	cont hS hr_S (t) cont hS 	hB(tp)   hr_B   hB(t)
+		-     hr_S (t) hS cont hS hr_B			cont hB (tp) hB(t)
+		-     hr_S (t) cont hS cont hS hr_B   		hB(tp) hB(t)
+	}
+;
+
+!\subsection{the particle trace }
+! assume there is no particle in the bath :
+
+@@
+  trr B {
+		hB(t) hB(tp) hr_B
+	}
+& =
+	trr B {
+			cont hB (t) cont hB (tp) hr_B
+	} = 0 
+m4spc , m4spc forall t , tp
+;
+
+! with this only selective are left over, like 
+@@
+ trr B {
+		hS cont B(t) , bb{
+			hH(tp) , hr_B hr_S (t)
+		}	
+	}
+& =  
+	hb hS cont hS  hr_S (t) trr B { cont hB (t) hB(tp) hr_B} \\
+	& - hb hS hr_S (t) cont hS trr B { cont hB (t) hr_B hB(tp) } \\
+	& - hb cont hS hr_S (t) hS trr B { hB(tp) hr_B cont hB (t) } \\
+	& + hb hr_S (t) cont hS hS trr B {  hr_B hB(tp) cont hB (t) } \\
+
+;
+
+! and on the other side there is  :
+@@
+ 	trr B {
+		cont hS hB(t)
+		,
+		bb {
+			hH(tp) 
+			,
+			hr_S (t) hr_B
+		}
+	}
+&=
+	hb cont hS hS hr_S (t) trr B { hB(t) cont hB (tp) hr_B } \\ 
+	&-hb cont hS hr_S (t) hS trr B {hB(t) hr_B cont hB (tp)} \\ 
+	&-hb hS hr_S (t) cont hS trr B {cont hB (tp) hr_B hB(t)} \\ 
+	&+hb hr_S (t) hS cont hS trr B {hr_B cont hB (tp) hB(t)} \\ 
+;
+
+
+! now it says that there is  ciclic properties of trace :
+! which paiscally means that : 
+@@
+	tr{ hat A hat B hat C hat D}
+=	tr{ hat B hat C hat D hat A}
+=	tr{ hat C hat D hat A hat B}
+=	tr{ hat D hat A hat B hat C}
+;
+! rearangement shows : 
+@@
+ trr B {
+		hS cont B(t) , bb{
+			hH(tp) , hr_B hr_S (t)
+		}	
+	}
+& =  
+			hb hS cont hS hr_S (t) trr B { cont hB (t) hB(tp) hr_B } 
+	  - hb cont hS hr_S (t) hS trr B { cont hB (t) hB(tp) hr_B } \\
+	& + hb hr_S (t) cont hS hS trr B { hB(tp) cont hB (t) hr_B } 
+	  - hb hS hr_S (t) cont hS trr B { hB(tp) cont hB (t) hr_B } 
+\\ \\  & =  
+			hb bp { hS cont hS hr_S (t)  
+	  - cont hS hr_S (t) hS } trr B { cont hB (t) hB(tp) hr_B } \\
+	& + hb bp { hr_S (t) cont hS hS   
+	  - hS hr_S (t) cont hS } trr B { hB(tp) cont hB (t) hr_B } 
+;
+! and
+@@
+ 	trr B {
+		cont hS hB(t)
+		,
+		bb {
+			hH(tp) 
+			,
+			hr_S (t) hr_B
+		}
+	}
+&=
+		hb cont hS hS hr_S (t) trr B {hB(t) cont hB (tp) hr_B }  
+	 -hb hS hr_S (t) cont hS trr B {hB(t) cont hB (tp) hr_B } \\ 
+	&+hb hr_S (t) hS cont hS trr B {cont hB (tp) hB(t) hr_B }  
+	 -hb cont hS hr_S (t) hS trr B {cont hB (tp) hB(t) hr_B }  
+\\ \\ &=
+		hb bp { 
+			cont hS hS hr_S (t) -hS hr_S (t) cont hS 
+		} trr B {hB(t) cont hB (tp) hr_B } \\ 
+	&+hb bp { 
+		hr_S (t) hS cont hS -cont hS hr_S (t) hS 
+	 } trr B {cont hB (tp) hB(t) hr_B }  
+;
+
+! since we like to see how this works with the system 
+! hamiltonian , we would like to continue
+! jobs at \eqref{expandedHamComute}
+! and then what it give us is that : 
+@@
+  trr B {
+		hH(t) , bb{
+			hH(tp) , hr_S (t) hr_B
+		}
+	}
+& = 
+	hb ^2 bp { 
+		hS cont hS hr_S (t)  - cont hS hr_S (t) hS 
+	} trr B { cont hB (t) hB(tp) hr_B } \\
+	& + hb ^2 bp { 
+		hr_S (t) cont hS hS  - hS hr_S (t) cont hS 
+	} trr B { hB(tp) cont hB (t) hr_B } \\ 
+	&+hb ^2 bp { 
+		cont hS hS hr_S (t) -hS hr_S (t) cont hS 
+	} trr B {hB(t) cont hB (tp) hr_B } \\ 
+	&+hb ^2 bp { 
+		hr_S (t) hS cont hS -cont hS hr_S (t) hS 
+	 } trr B { cont hB (tp) hB(t) hr_B }  
+;
+! so that is it 
+! \subsection{The expansion of the integrand of the master equation}
+! now we look back to the integration mentioned at the\eqref{eqDensity}
+! for convenince , we could have that :  
+@@
+  F(t) = int_0 ^t 
+		trr B {hB(t) cont hB (tp) hr_B}
+	der tp \\
+ 	G(t) = int_0 ^t 
+		trr B {cont hB (tp) hB(t)  hr_B}
+	der tp \\
+;
+! and if we take the conjugate , it some how
+! just exchange the 
+$ tp  ; ! and  
+$ t ; 
+
+! I think the density matrix has its trace elements summed to 1
+! but conjugation of the operator 
+$ hB ; ! which is not promissed to be hermitian will look like : 
+@@
+  conj hB (t)
+&=
+	sum_k 
+		g_k conj{ao_k} exp{ii om_k t}
+	\\
+  conj (cont hB (t))
+&=
+	sum_k 
+		conj {g_k} conj (ad_k) exp{-ii om_k t}
+;
+
+! we know that for the system
+@@
+  hB(t) cont hB (tp)
+&=
+	sum_k sum_kp
+		conj g_k g_kp  
+		exp{ -ii( om_k t - om_kp tp)}
+		ao_k ad_kp
+\\
+  conj bp {
+		hB(t) cont hB (tp)
+	}
+&=
+	sum_k sum_kp
+		g_k conj g_kp  
+		exp{ ii ( om_k t - om_kp tp)}
+		conj ( ao_k ad_kp )
+\\ &=
+	sum_kp sum_k 
+		conj g_k  g_k   
+		exp{- ii ( om_kp tp - om_k t )}
+		conj ( ao_k)  conj ( ad_kp )
+;
+! so I didn't get this . 
+! in the perspective of trace : 
+@@
+  trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+&= 
+	sum_n bra n 
+		sum_k sum_kp
+			conj g_k g_kp  
+			exp{ -ii( om_k t - om_kp tp)}
+			ao_k ad_kp
+		sum_i p_i ket i bra i 
+	ket  n
+\\ &= 
+	sum_n bra n 
+		sum_k sum_kp
+			conj g_k g_kp p_n 
+			exp{ -ii ( om_k t - om_kp tp)}
+			ao_k ad_kp
+	ket  n
+\\ &= 
+	sum_n bra n 
+		sum_k 
+			conj g_k g_k p_n 
+			exp{ -ii ( om_k t - om_kp tp)}
+			ao_k ad_k
+	ket  n
+;
+! this expessionis kind of all real(except 
+! the expotential part) if 
+! there the , 
+$ hr_B = sum_i ket i bra i p_i; ! is true 
+! , if so turning it around would be like
+!(this might not be true , need to recheck ): 
+
+@@
+  conj bp trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+&=
+	sum_n bra n 
+		sum_k 
+			conj g_k g_k p_n 
+			exp{ -ii ( om_kp tp - om_k t)}
+			ao_k ad_k
+	ket  n
+\\ & = 
+	trr B {
+		hB(tp ) cont hB (t) hr_B
+	}
+;
+! and this gives me a little 
+! acceptability to the expression : 
+
+@@
+  conj F(t) 
+&= int_0 ^t 
+		conj bp {
+			trr B {hB(t) cont hB (tp) hr_B}
+		}
+	der tp 
+\\ &= int_0 ^t 
+		bp {
+			trr B {hB(tp) cont hB (t) hr_B}
+		}
+	der tp 
+\\
+ 	conj G(t) &= int_0 ^t 
+		conj bp trr B {cont hB (tp) hB(t)  hr_B}
+	der tp \\
+&= int_0 ^t 
+		trr B {cont hB (t) hB(tp)  hr_B}
+	der tp \\
+;
+
+! so we have that :
+@@ lab 'sysRhoDerTime'
+  dd {hr_S (t)} t
+&=
+	- bp { 
+		hS cont hS hr_S (t)  - cont hS hr_S (t) hS 
+	} conj G(t) \\
+	& - bp { 
+		hr_S (t) cont hS hS  - hS hr_S (t) cont hS 
+	} conj F(t)\\ 
+	&- bp { 
+		cont hS hS hr_S (t) -hS hr_S (t) cont hS 
+	} F(t) \\ 
+	&- bp { 
+		hr_S (t) hS cont hS -cont hS hr_S (t) hS 
+	 } G(t)  
+;
+!\subsection{The bath specification}
+
+! the initial vacuum state of a bath is like :
+@@
+  hr_B
+&=
+	bp {
+		ket 0 ket 0 ......
+	} otms bp {
+		bra 0 bra 0 ......
+	}
+;
+
+! so that : 
+@@
+  trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+& = 
+  trr B {
+		hB(t) cont hB (tp) 
+		bp {
+			ket 0 ket 0 ......
+		} otms bp {
+			bra 0 bra 0 ......
+		}
+	}
+\\ 
+  trr B {
+		cont hB (tp) hB(t) hr_B
+
+	}
+& = 
+  trr B {
+		cont hB (tp) hB(t) 
+		bp {
+			ket 0 ket 0 ......
+		} otms bp {
+			bra 0 bra 0 ......
+		}
+	}
+;
+
+! calling some bath states as 
+$ mrp { ket  b } ; 
+! then we can say : 
+@@
+  trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+& = 
+	sum_b bra b
+		hB(t) cont hB (tp) 
+		bp {
+			ket 0 ket 0 ......
+		} otms bp {
+			bra 0 bra 0 ......
+		}
+	ket b 
+\\ & = 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		sum_b
+			ket b 
+			bra b
+		hB(t) cont hB (tp) 
+		bp {
+			ket 0 ket 0 ...
+		}
+\\ & = 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		hB(t) cont hB (tp) 
+		bp {
+			ket 0 ket 0 ...
+		}
+;
+
+! as well as : 
+@@
+  trr B {
+		cont hB (tp) hB(t) hr_B
+	}
+& = 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		cont hB (tp) hB(t) 
+		bp {
+			ket 0 ket 0 ...
+		}
+;
+! so lets shoot them up : 
+@@
+  trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+& = 
+	bp {
+		bra 0 bra 0 ...
+	} 
+	sum_{k , kp }
+		conj g_k g_kp exp { - ii ( om_k t - om_kp tp)} ao_k ad_kp
+	bp {
+		ket 0 ket 0 ...
+	}
+\\ & = 
+	sum_{k , kp }
+		conj g_k g_kp 
+		exp { - ii ( om_k t - om_kp tp)} 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		ao_k ad_kp
+		bp {
+			ket 0 ket 0 ...
+		}
+;
+
+@@
+  trr B {
+		cont hB (tp) hB(t) hr_B
+	}
+& = 
+	sum_{kp , k }
+		conj g_k g_kp 
+		exp { - ii ( om_k t - om_kp tp)} 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		ad_kp ao_k 
+		bp {
+			ket 0 ket 0 ...
+		}
+;
+! with
+$ ao_k ad_kp = ad_kp ao_k + dlt_{k , kp } ; 
+
+
+@@
+  trr B {
+		hB(t) cont hB (tp) hr_B
+	}
+& = 
+	sum_{k , kp }
+		conj g_k g_kp 
+		exp { - ii ( om_k t - om_kp tp)} 
+		dlt_{k , kp }
+
+	+sum_{k , kp }
+		conj g_k g_kp 
+		exp { - ii ( om_k t - om_kp tp)} 
+		bp {
+			bra 0 bra 0 ...
+		} 
+		ad_kp ao_k  
+		bp {
+			ket 0 ket 0 ...
+		}
+\\ & = 
+	sum_{k  }
+		| g_k | ^2 
+		exp { - ii om_k(  t -  tp)} 
+;
+! so it gives the things to the 
+$F(t);! and we have : 
+@@
+  F(t) 
+&= 
+	sum_{k  } | g_k | ^2 
+		int_0 ^t
+			exp {- ii om_k(  t -  tp)} 
+		der tp
+\\
+	G(t)
+&= 0 
+;
+
+!\subsection{Transition to the continuum}
+! now say 
+
+@@
+  J(om)
+& = sum_l
+	|g_l| ^2 dlt(om - om_l)
+;
+
+! reditriubute the k index to the 
+$ J(om) ; 
+! int the function 
+$ F(t) ; ! gives  
+@@
+  F(t)
+& = 
+	int_0 ^inf der om J(om)
+		int_0 ^t der tp exp{ -ii om (t - tp )}
+;
+
+! now lets use 
+$ tau = t -tp ; ! so 
+$ der tau =  - der tp ; 
+
+
+! then it gives 
+@@
+  int_0 ^t der tp 
+= - int_t ^0 der tau 
+=  int_0 ^t der tau 
+;
+
+! now it writes that  
+@@ lab 'FtTau'
+	F(t)
+& = 
+	int_0 ^inf der om J(om)
+		int_0 ^t der tau exp{ -ii om tau }
+;
+
+!\subsection{The Markov approximation}
+! so targeting the good old equation \eqref{eqDensity}
+! we know that we like to have the t to be infinite on the \eqref{FtTau},so
+
+
+@@
+	int_0 ^inf der tau exp{ -ii om tau }
+& = 
+	lim_{ eta imp 0 ^+}
+	int_0 ^inf der tau 
+		exp{ -ii om tau - eta tau }
+\\ & = 
+	lim_{ eta imp 0 ^+}
+		1 / {eta + ii om }
+\\ & = 
+	lim_{ eta imp 0 ^+}
+		 {eta - ii om }/ {eta ^2 + om ^2 }
+\\ & = 
+	lim_{ eta imp 0 ^+}
+		 {eta }/ {eta ^2 + om ^2 }
+	- lim_{ eta imp 0 ^+}
+		 { ii om }/ {eta ^2 + om ^2 }
+\\ & = 
+	pi dlt(om) - ii tx P 1/om
+;
+! this P stands for Cauchy pricipal part, then we have:
+
+@@
+  F
+& = 
+	pi int_0 ^inf der om J(om) dlt(om)
+	 - ii tx P int_0 ^inf der om J(om) 1/om 
+;
+
+
+!\subsection{Final form }
+
+@@
+  F = { gm + ii vep}/2 \\ 
+	gm defto  2 pi int_0 ^inf der om J(om) dlt(om) \\
+	vep defto  - 2 tx P int_0 ^inf der om J(om) 1/om
+;
+! with 
+$ G =0  ; ! in mind we have that equation 
+!\eqref{sysRhoDerTime} evolves into
+@@ 
+  dd {hr_S (t)} t
+&=
+	- bp { 
+		hr_S (t) cont hS hS  - hS hr_S (t) cont hS 
+	} {gm - ii vep}/2 \\ 
+	&- bp { 
+		cont hS hS hr_S (t) -hS hr_S (t) cont hS 
+	} {gm + ii vep}/2 \\ 
+\\ &=
+	- gm/2 bp {
+		hr_S (t) cont hS hS  - hS hr_S (t) cont hS 
+		+ cont hS hS hr_S (t) -hS hr_S (t) cont hS 
+	}
+\\&+ {ii vep}/2 bp {
+		hr_S (t) cont hS hS  - hS hr_S (t) cont hS 
+		-cont hS hS hr_S (t) +hS hr_S (t) cont hS 
+	}
+;
+! some how it says that 
+$ vep = 0  ; 
+! which can be achived by a good choice of denisty state
+! choosing , for example , we can extend the lower limit of integration to 
+$ -inf ; ! noticing that :  
+! and eventually : 
+
+@@ lab 'explicitTimedRho' 
+  dd {hr_S (t)} t
+&=
+	 gm bp {
+		 hS hr_S (t) cont hS 
+		- 1/2 mrp{cont hS hS , hr_S (t)} 
+	}
+;
+
+! so back in the original
+@@
+	hr_S (t) 
+&= 
+	exp{ ii hH_S t by hb}
+	hr_S 
+	exp{ - ii hH_S t by hb}
+
+;
+
+! and derivationg it will be looking like 
+@@ 
+	dd {hr_S (t) } t
+&= 
+	ii/hb hH_S 
+	exp{ ii hH_S t by hb}
+	hH_S
+	hr_S 
+	exp{ - ii hH_S t by hb}
+	+	
+	exp{ ii hH_S t by hb}
+	dd {hr_S} t 
+	exp{ - ii hH_S t by hb}
+
+	- ii/hb  
+	exp{ ii hH_S t by hb}
+	hr_S hH_S
+	exp{ - ii hH_S t by hb}
+\\ &= 
+	ii/hb  
+	exp{ ii hH_S t by hb}
+	bb { hH_S ,	hr_S }
+	exp{ - ii hH_S t by hb}
+	+	
+	exp{ ii hH_S t by hb}
+	dd {hr_S} t 
+	exp{ - ii hH_S t by hb}
+;
+! also , there  is that : 
+@@ lab 'noExplicitTimeRho'
+	bp {
+		 hS hr_S (t) cont hS 
+		- 1/2 mrp{cont hS hS , hr_S (t)} 
+	}
+& =
+	exp{ ii hH_S t by hb}
+	bp {
+		 hS hr_S cont hS 
+		- 1/2 mrp{cont hS hS , hr_S} 
+	}
+	exp{ - ii hH_S t by hb}
+;
+! so connecting this with the explicit timed \eqref{explicitTimedRho} 
+! and the no explicit timed \eqref{noExplicitTimeRho}
+! we have : 
+@@
+	gm bp {
+		 hS hr_S cont hS 
+		- 1/2 mrp{cont hS hS , hr_S} 
+	}
+&=
+	ii/hb  
+	bb { hH_S ,	hr_S }
+	+	
+	dd {hr_S} t 
+;
+! and arranging it gives : 
+@@
+	dd {hr_S} t 
+&=
+	-ii/hb  
+	bb { hH_S ,	hr_S }
+	+
+	gm bp {
+		 hS hr_S cont hS 
+		- 1/2 mrp{cont hS hS , hr_S} 
+	}
+;
+
+
+! \section{conclusion}
+! so just with several 
+$ hat L  ; ! instead of
+$ hS ; ! we can have 
+@@
+	dd {hr_S} t 
+&=
+	-ii/hb  
+	bb { hH_S ,	hr_S }
+	+
+	gm sum_j bp {
+		 hL_j hr_S cont hL_j 
+		- 1/2 mrp{cont hL_j hL_j , hr_S} 
+	}
+;

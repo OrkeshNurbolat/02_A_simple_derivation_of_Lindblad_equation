@@ -1,0 +1,692 @@
+\title{note : A simple derivation of Lindblad equation}
+\author{Orkesh Nurbolat}
+\maketitle
+ S(principal) and B(bath) are 2 system in 
+ $ \mathcal{H }_{S } $  and 
+ $ \mathcal{H }_{B } $ (L:41)
+\begin{equation}
+\begin{split}
+\hat{H }(t )&=\hat{H }_{s }\otimes \mathds{1}_{B }+\mathds{1}_{S }\otimes \hat{H }_{B }+\alpha \hat{H }_{S B }\end{split}
+\end{equation}
+ for the sake of simplicity :
+(L:50)
+\begin{equation}
+\begin{split}
+\label{hamDef}\hat{H }(t )=\hat{H }_{S }+H _{B }+\alpha \hat{H }_{S B }\end{split}
+\end{equation}
+ there is :
+(L:55)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S B }}{\bold{d}t }&=-\frac{\ii }{\hbar }\left[\hat{H }_{S }+\hat{H }_{B }+\alpha \hat{H }_{S B },\hat{\rho }_{S B }\right]\end{split}
+\end{equation}
+ Hamiltonian is timed as :
+(L:64)
+\begin{equation}
+\begin{split}
+\hat{H }(t )&=\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\hat{H }_{S B }\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\end{split}
+\end{equation}
+ while the : 
+(L:74)
+\begin{equation}
+\begin{split}
+\hat{\rho }(t )&=\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\hat{\rho }_{S B }\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\\
+\hat{\rho }_{S B (t )}&=\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\hat{\rho }\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\end{split}
+\end{equation}
+ \textbf{note }
+ that on the rear end of an equation , central elements are not
+ timed , they are the things at a certain constant time . \\
+(L:91)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }(t )}{\bold{d}t }&=-\dfrac{\ii }{\hbar }\left[\hat{H }(t ),\hat{\rho }(t )\right]\end{split}
+\end{equation}
+ noting that : 
+(L:98)
+\begin{equation}
+\begin{split}
+\hat{\rho }_{S }(t )&=\text{Tr}_{B }\left[\hat{\rho }_{S B (t )}\right]\end{split}
+\end{equation}
+ and then we have  that
+(L:106)
+\begin{equation}
+\begin{split}
+\hat{\rho }(t )&=\hat{\rho }(0)-\dfrac{\ii }{\hbar }\alpha \int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }(t ')\right]\bold{d}t '\end{split}
+\end{equation}
+(L:114)
+\begin{equation}
+\begin{split}
+\label{canUseBornApprox}\dfrac{\bold{d}\hat{\rho }(t )}{\bold{d}t }&=-\ii \dfrac{\alpha }{\hbar }\left[\hat{H }(t ),\hat{\rho }(0)\right]-\dfrac{\alpha ^{2}}{\hbar ^{2}}\left[\hat{H }(t ),\int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }(t ')\right]\bold{d}t '\right]\end{split}
+\end{equation}
+considering the relationship between the SB and the S
+ we know that : 
+ being aware that  : 
+ so here what we care about is that : 
+ 
+(L:136)
+\begin{equation}
+\begin{split}
+&\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\left(\left[\hat{H },\hat{\rho }\right]\right)\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\\
+&=\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\left(\hat{H }\hat{\rho }\right)\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }-\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\left(\hat{\rho }\hat{H }\right)\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\end{split}
+\end{equation}
+ and in this contex what I know is that  :
+(L:151)
+\begin{equation}
+\begin{split}
+\label{trickEquation}&\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\left(\hat{H }\hat{\rho }\right)\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\\
+&=\left(\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\hat{H }\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\right)\left(\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\hat{\rho }\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\right)\end{split}
+\end{equation}
+ by the \eqref{trickEquation} , we know that this can be done so by this we can say that  
+(L:171)
+\begin{equation}
+\begin{split}
+\ee ^{-i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }\left[\hat{H },\hat{\rho }\right]\ee ^{i /\hbar (\hat{H }_{S }+\hat{H }_{B })t }&=\left[\hat{H }(t ),\hat{\rho }(t )\right]\end{split}
+\end{equation}
+ note that here the first expression starts from 
+ a moment there is no time on it , 
+ the time is given by the evaluation
+ we can have the \textbf{Born Approximation} applied to \eqref{canUseBornApprox} \\ 
+ now we like to cut the bath part out of the picture	 , so we are going to do an trace over it :
+ according to the auther : 
+ $ \hat{H } $  is defined by the 
+ $ \hat{H }_{S },\hat{H }_{B } $  and the interaction term as shown as
+ \eqref{hamDef} , so there is a way to define 
+ $ \hat{H }_{S },\hat{H }_{B } $  without losing generality , so that
+(L:215)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B \frac{-\ii \alpha }{\hbar }\left[\hat{H }(t ),\hat{\rho }(0)\right]}\left[=\right]0\end{split}
+\end{equation}
+ if that is true then we could have that : 
+(L:224)
+\begin{equation}
+\begin{split}
+\label{defRhoSys}\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\dfrac{\alpha ^{2}}{\hbar ^{2}}\text{Tr}_{B }\left[\hat{H }(t ),\int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }(t ')\right]\bold{d}t '\right]\end{split}
+\end{equation}
+ integrating \refeq{defRhoSys} from 
+ $ t  $  to the  
+ $ t ' $ yelds: 
+(L:239)
+\begin{equation}
+\begin{split}
+\hat{\rho }_{S }(t ')-\hat{\rho }_{S }(t )&=-\dfrac{\alpha ^{2}}{\hbar ^{2}}\int _{t }^{t '}\text{Tr}_{B }\left[\hat{H }(n '),\int _{0}^{n '}\left[\hat{H }(t ''),\hat{\rho }(t '')\right]\bold{d}t ''\right]\bold{d}n '\end{split}
+\end{equation}
+ or integing
+ $ t ' $  to the  
+ $ t  $ yelds: 
+(L:255)
+\begin{equation}
+\begin{split}
+\hat{\rho }_{S }(t )-\hat{\rho }_{S }(t ')&=-\dfrac{\alpha ^{2}}{\hbar ^{2}}\int _{t '}^{t }\text{Tr}_{B }\left[\hat{H }(n '),\int _{0}^{n '}\left[\hat{H }(t ''),\hat{\rho }(t '')\right]\bold{d}t ''\right]\bold{d}n '\end{split}
+\end{equation}
+difference of 
+ $ \hat{\rho }(t ) $  and  
+ $ \hat{\rho }(t ') $  is of magnitude of 
+ $ \alpha ^{2} $  so primiary time equation could be writen in the folowing 
+ ways without violationg \textbf{Born approximation}
+(L:273)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\dfrac{\alpha ^{2}}{\hbar ^{2}}\text{Tr}_{B }\left[\hat{H }(t ),\int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }(t )\right]\bold{d}t '\right]\end{split}
+\end{equation}
+ lets say Bath and System are in full interaction( 
+ $ \alpha =1 $  )  , and this is an approximation , so there is : 
+(L:286)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\dfrac{1}{\hbar ^{2}}\text{Tr}_{B }\left[\hat{H }(t ),\int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }(t )\right]\bold{d}t '\right]\end{split}
+\end{equation}
+ writing that, (ignoreing Bath Hamiltionain time as well)
+(L:299)
+\begin{equation}
+\begin{split}
+\hat{\rho }(t )&=\hat{\rho }_{S }(t )\otimes \hat{\rho }_{B (t )}\\
+&=\hat{\rho }_{S }(t )\hat{\rho }_{B (t )}\end{split}
+\end{equation}
+ and take the time to be infinitly long , then  : 
+(L:304)
+\begin{equation}
+\begin{split}
+\label{eqDensity}\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\dfrac{1}{\hbar ^{2}}\text{Tr}_{B }\left[\hat{H }(t ),\int _{0}^{\infty }\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\bold{d}t '\right]\end{split}
+\end{equation}
+ \section {LINDBLAD EQUATION}
+\subsection{Hamiltionians and Operators}
+ so there is :
+(L:320)
+\begin{equation}
+\begin{split}
+\label{systemHamSB}\hat{H }_{S B }&=\hbar \left(\hat{S }\hat{B }^\dagger +\hat{S }^\dagger \hat{B }\right)\end{split}
+\end{equation}
+ of course with multiple expreseion of 
+ $ \hat{S } $  it could be expressed as : 
+ so : 
+(L:331)
+\begin{equation}
+\begin{split}
+\hat{H }_{S B }&=\hbar \sum \left(\hat{L }\hat{B }^\dagger +\hat{L }^\dagger \hat{B }\right)\end{split}
+\end{equation}
+ and then this 
+ $ \hat{L } $  is system and Bath related , 
+ how does it have in the system is not interested 
+(L:341)
+\begin{equation}
+\begin{split}
+\hat{S }(t )=\hat{S }\end{split}
+\end{equation}
+ is not aggected by the interaction-picture frame ,
+ defining the bath is a bath of  bosons :  
+(L:346)
+\begin{equation}
+\begin{split}
+\hat{H }_{B }&=\hbar \sum _{k }\omega _{k }\hat{a }^\dagger _{k }\hat{a }_{k }\end{split}
+\end{equation}
+ so the bath have
+ $ k  $  modes , and 
+ $ \hat{a }^\dagger ,\hat{a } $  creates or annihilates them 
+ but the operator
+(L:354)
+\begin{equation}
+\begin{split}
+\hat{B }=\sum _{k }g _{k }^*\hat{a }_{k }\end{split}
+\end{equation}
+ is not
+ $ \hat{H }_{B } $  and here  
+ $ g _{k } $  is said to be complex coefficients represing coupling constants
+ then , in the interaction picture,(of course here
+ $ \hat{H }_{S }+\hat{H }_{B } $  is not used but only that the 
+ $ \hat{H }_{B } $  is used )
+(L:366)
+\begin{equation}
+\begin{split}
+\label{timeB}\hat{B }(t )&=\ee ^{\ii /\hbar \hat{H }_{B }t }\hat{B }\ee ^{-\ii /\hbar \hat{H }_{B }t }\end{split}
+\end{equation}
+ in \eqref{timeB}  , taylor slicing it gives 
+ the exp parts eventually fill my hand with :
+(L:375)
+\begin{equation}
+\begin{split}
+\hat{B }(t )&=\ee ^{\ii /\hbar \hat{H }_{B }t }\hat{B }\ee ^{-\ii /\hbar \hat{H }_{B }t }\\
+&=\sum _{k }\ee ^{\sum _{k '}\ii \left(\omega _{k '}\hat{a }^\dagger _{k '}\hat{a }_{k '}\right)t }g _{k }^*\hat{a }_{k }\ee ^{-\sum _{k ''}\ii \left(\omega _{k ''}\hat{a }^\dagger _{k ''}\hat{a }_{k ''}\right)t }\end{split}
+\end{equation}
+ for the boson we know that : 
+(L:392)
+\begin{equation}
+\begin{split}
+\left[\hat{a }_{k },\hat{a }_{k '}\right]&=0\\
+\left[\hat{a }_{k },\hat{a }^\dagger _{k '}\right]&=\delta _{k ,k '}\\
+\left[\hat{a }^\dagger _{k '},\hat{a }_{k }\right]&=-\delta _{k ,k '}\\
+\left[\hat{a }^\dagger _{k '}\hat{a }_{k '},\hat{a }_{k }\right]&=\left[\hat{a }^\dagger _{k '},\hat{a }_{k }\right]\hat{a }_{k '}+\hat{a }^\dagger _{k '}\left[\hat{a }_{k '},\hat{a }_{k }\right]=-\delta _{k ,k '}\hat{a }_{k '}\\
+\end{split}
+\end{equation}
+ however there is :
+(L:418)
+\begin{equation}
+\begin{split}
+\left[\hat{a }^\dagger _{n }\hat{a }_{n }\hat{a }^\dagger _{m }\hat{a }_{m },\hat{a }_{k }\right]&=\left[\hat{a }^\dagger _{n }\hat{a }_{n },\hat{a }_{k }\right]\hat{a }^\dagger _{m }\hat{a }_{m }+\hat{a }^\dagger _{n }\hat{a }_{n }\left[\hat{a }^\dagger _{m }\hat{a }_{m },\hat{a }_{k }\right]\\
+&=\delta _{n ,k }\hat{a }_{k }\hat{a }^\dagger _{m }\hat{a }_{m }+\delta _{m ,k }\hat{a }^\dagger _{n }\hat{a }_{n }\hat{a }_{k }\end{split}
+\end{equation}
+ taking it another step further , we have : 
+ we  also remind ourself that here we could really just take that things, and ofcourse  this S is an arbitary, prod operation will do it in a sorted fashion
+given partial ordered Set, each element of it is impicitly corresponded to a Natural number 
+(L:436)
+\begin{equation}
+\begin{split}
+\label{prodadao}\left[\prod _{z \in S }\hat{a }^\dagger _{z }\hat{a }_{z },\hat{a }_{k }\right]&=\sum _{z \in S }\delta _{z ,k }\left(\prod _{m \in S \wedge m \subset z }\hat{a }^\dagger _{m }\hat{a }_{m }\right)\hat{a }_{k }\left(\prod _{n \in S \wedge n \supset z }\hat{a }^\dagger _{n }\hat{a }_{n }\right)\\
+&=\sum _{z \in S }\delta _{z ,k }\hat{a }_{k }\left(\prod _{m \in S \wedge m \subset z }(\hat{a }^\dagger _{m }\hat{a }_{m }-\delta _{m ,k }\hat{a }_{k })\right)\left(\prod _{n \in S \wedge n \supset z }\hat{a }^\dagger _{n }\hat{a }_{n }\right)\end{split}
+\end{equation}
+switching the perspective gives : 
+(L:466)
+\begin{equation}
+\begin{split}
+\left[\hat{H }_{B },\hat{a }_{k }\right]&=-\hbar \omega _{k }\hat{a }_{k }\\
+\left[\hat{H }_{B }^{2},\hat{a }_{k }\right]&=-\hbar \omega _{k }\left(\hat{a }_{k }\hat{H }_{B }+\hat{H }_{B }\hat{a }_{k }\right)\\
+\left[\hat{H }_{B }^{n },\hat{a }_{k }\right]&=-\hbar \omega _{k }\sum _{i }^{n }\left(\prod _{m =0}^{i -1}\hat{H }_{B }\right)\hat{a }_{k }\left(\prod _{l =i +1}^{n }\hat{H }_{B }\right)\\
+&=-\hbar \omega _{k }\hat{a }_{k }\sum _{i }^{n }\left(\prod _{m =0}^{i -1}\hat{H }_{B }-\hbar \omega _{k }\hat{a }_{k }\right)\left(\prod _{l =i +1}^{n }\hat{H }_{B }\right)\end{split}
+\end{equation}
+ now : 
+(L:499)
+\begin{equation}
+\begin{split}
+\left[\ee ^{\ii \hat{H }_{B }t /\hbar },\hat{a }_{k }\right]&=\sum _{n }\frac{\left[(\ii \hat{H }_{B }t /\hbar )^{n },\hat{a }_{k }\right]}{n ! }\\
+&=\sum _{n }\frac{(\ii t /\hbar )^{n }\left[\hat{H }_{B }^{n },\hat{a }_{k }\right]}{n ! }\\
+&=\sum _{n }\frac{(\ii t /\hbar )^{n }\left(-\hbar \omega _{k }\sum _{i }^{n }\hat{H }_{B }^{i -1}\hat{a }_{k }\hat{H }_{B }^{n -i }\right)}{n ! }\end{split}
+\end{equation}
+ and 
+(L:536)
+\begin{equation}
+\begin{split}
+\left[\ee ^{\ii \hat{H }_{B }t /\hbar },\hat{a }_{k }\right]\ee ^{-\ii \hat{H }_{B }t /\hbar }&=\sum _{n }\sum _{m }\frac{(-1)^{m }(\ii t /\hbar )^{n +m }\left(-\hbar \omega _{k }\sum _{i }^{n }\hat{H }_{B }^{i -1}\hat{a }_{k }\hat{H }_{B }^{n -i }\right)\hat{H }_{B }^{m }}{n ! m ! }\\
+&=\sum _{n }\sum _{m }\frac{(-1)^{m }(\ii t /\hbar )^{n +m }\left(-\hbar \omega _{k }\hat{a }_{k }\sum _{i }^{n }(\hat{H }_{B }^{i -1}-\hbar \omega _{k }\hat{a }_{k })\hat{H }_{B }^{n -i }\right)\hat{H }_{B }^{m }}{n ! m ! }\end{split}
+\end{equation}
+ for its nth compond ,it has alot of \eqref{prodadao}
+ ok , lets just use the CBH formula here 
+ which states that:
+(L:581)
+\begin{equation}
+\begin{split}
+\mu (t )&=\ee ^{\lambda t }\mu \ee ^{-\lambda t }\\
+\dfrac{\bold{d}\mu (t )}{\bold{d}t }&=\dfrac{\bold{d}\ee ^{\lambda t }}{\bold{d}t }\mu \ee ^{-\lambda t }+\ee ^{\lambda t }\mu \dfrac{\bold{d}\ee ^{-\lambda t }}{\bold{d}t }\\
+\\
+&=\ee ^{\lambda t }\left(\lambda \mu -\mu \lambda \right)\ee ^{-\lambda t }\\
+&=\ee ^{\lambda t }\left[\lambda ,\mu \right]\ee ^{-\lambda t }\end{split}
+\end{equation}
+ expanding at 
+(L:591)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}^{2}\mu (t )}{\partial \bold{d}t 2}&=\ee ^{\lambda t }\left[\lambda \left[\lambda ,\mu \right]\right]\ee ^{-\lambda t }\end{split}
+\end{equation}
+ now expanding the 
+ $ \mu (t ) $  from the time 0 gives
+(L:602)
+\begin{equation}
+\begin{split}
+\mu (t )=\mu +[\lambda ,\mu ]t +\frac{1}{2! }[\lambda ,[\lambda ,\mu ]]t ^{2}+......\end{split}
+\end{equation}
+ well now , we know that if 
+(L:607)
+\begin{equation}
+\begin{split}
+\lambda =\ii \hat{H }/\hbar \\
+\mu =\hat{a }_{k }\end{split}
+\end{equation}
+ so 
+(L:612)
+\begin{equation}
+\begin{split}
+[\lambda ,\mu ]=-\ii \omega _{k }\hat{a }_{k }\\
+[\lambda ,[\lambda ,\mu ]]=(-\ii \omega _{k })^{2}\hat{a }_{k }\end{split}
+\end{equation}
+ so that :
+(L:617)
+\begin{equation}
+\begin{split}
+\ee ^{\ii \hat{H }_{B }t /\hbar }\hat{a }_{k }\ee ^{-\ii \hat{H }_{B }t /\hbar }&=\hat{a }_{k }\left(\sum _{n }\dfrac{(-\ii \omega _{k }t )^{n }}{n ! }\right)\\
+&=\hat{a }_{k }\ee ^{-\ii \omega _{k }t }\end{split}
+\end{equation}
+ so then  we had
+(L:630)
+\begin{equation}
+\begin{split}
+\hat{B }(t )=\sum _{k }g _{k }^*\hat{a }_{k }\ee ^{-\ii \omega _{k }t }\end{split}
+\end{equation}
+ now with that 
+(L:637)
+\begin{equation}
+\begin{split}
+\hat{H }_{S B }=\hbar \left(\hat{S }\hat{B }^\dagger +\hat{S }^\dagger \hat{B }\right)\end{split}
+\end{equation}
+ this 
+ $ \hat{B } $  is a resemble of Jaynes-Cummings model , which is like : 
+(L:644)
+\begin{equation}
+\begin{split}
+\hat{H }&=\hbar \left(\hat{a }^\dagger \hat{a }+\frac{1}{2}\right)+\hbar \left(\hat{b }^\dagger \hat{b }+\frac{1}{2}\right)+g \left(\hat{a }^\dagger \hat{b }+\hat{b }^\dagger \hat{a }\right)\end{split}
+\end{equation}
+ and then lokoing back to the denity matrix \eqref{eqDensity}
+ now we want to study that the comutation part : 
+(L:652)
+\begin{equation}
+\begin{split}
+\left[\hat{H }(t ),\int _{0}^{t }\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\bold{d}t '\right]&=\int _{0}^{t }\left[\hat{H }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\bold{d}t '\end{split}
+\end{equation}
+ the part that cared about is :
+ by the way , is there  :
+ $ \hat{\rho }_{S }(t )\hat{\rho }_{B }=\hat{\rho }_{B }\hat{\rho }_{S }(t ) $ ? well I dont think so , becaue 
+ $ \hat{\rho }_{S }(t )\hat{\rho }_{B }=\hat{\rho }_{S }(t )\otimes \hat{\rho }_{B } $  $ \hat{\rho }_{S }(t )=\hat{\rho }_{S }(t )\otimes \mathds{1}_{B } $  and 
+ $ \hat{\rho }_{B }=\mathds{1}_{S }\otimes \hat{\rho }_{B } $  is what it means 
+(L:675)
+\begin{equation}
+\begin{split}
+\label{expandedHamComute}\left[\hat{H }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]&=\hbar \left[\hat{S }\hat{B }^\dagger +\hat{S }^\dagger ,\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\\
+&=\hbar \left[\hat{S }\hat{B }^\dagger ,\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]+\hbar \left[\hat{S }^\dagger \hat{B },\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\end{split}
+\end{equation}
+ lets say for the part that
+(L:699)
+\begin{equation}
+\begin{split}
+&\left[\hat{S }\hat{B }^\dagger (t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\\
+&=\hbar \left[\hat{S }\hat{B }^\dagger (t ),\left[\hat{S }\hat{B }^\dagger (t ')+\hat{S }^\dagger \hat{B }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\\
+&=\hbar \left(\hat{S }\hat{B }^\dagger (t )\left[\hat{S }\hat{B }^\dagger (t ')+\hat{S }^\dagger \hat{B }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]-\left[\hat{S }\hat{B }^\dagger (t ')+\hat{S }^\dagger \hat{B }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\hat{S }\hat{B }^\dagger (t )\right)\\
+&=\hbar \left(\hat{S }\hat{B }^\dagger (t )\hat{S }\hat{B }^\dagger (t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }+\hat{S }\hat{B }^\dagger (t )\hat{S }^\dagger \hat{B }(t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }-\hat{S }\hat{B }^\dagger (t )\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t ')-\hat{S }\hat{B }^\dagger (t )\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t ')\right)\\
+&-\hbar \left(\hat{S }\hat{B }^\dagger (t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t )+\hat{S }^\dagger \hat{B }(t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t )-\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t ')\hat{S }\hat{B }^\dagger (t )-\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t ')\hat{S }\hat{B }^\dagger (t )\right)\end{split}
+\end{equation}
+ grouping similiar terms here gives: 
+ so there is 
+ $ [\hat{\rho }_{b },\hat{S }]=0, $  $ [\hat{\rho }_{S }(t ),\hat{S }]\neq 0, $  $ [\hat{\rho }_{b },\hat{B }]\neq 0, $  $ [\hat{\rho }_{S }(t ),\hat{B }]=0 $  we can then have 
+(L:756)
+\begin{equation}
+\begin{split}
+&\left[\hat{S }\hat{B }^\dagger (t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\\
+&=\hbar \left(\hat{S }\hat{S }\hat{\rho }_{S }(t )\hat{B }^\dagger (t )\hat{B }^\dagger (t ')\hat{\rho }_{B }+\hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }-\hat{S }\hat{\rho }_{S }(t )\hat{S }\hat{B }^\dagger (t )\hat{\rho }_{B }\hat{B }^\dagger (t ')-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{B }^\dagger (t )\hat{\rho }_{B }\hat{B }(t ')\right)\\
+&-\hbar \left(\hat{S }\hat{\rho }_{S }(t )\hat{S }\hat{B }^\dagger (t ')\hat{\rho }_{B }\hat{B }^\dagger (t )+\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\hat{B }(t ')\hat{\rho }_{B }\hat{B }^\dagger (t )-\hat{\rho }_{S }(t )\hat{S }\hat{S }\hat{\rho }_{B }\hat{B }^\dagger (t ')\hat{B }^\dagger (t )-\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }\hat{\rho }_{B }\hat{B }(t ')\hat{B }^\dagger (t )\right)\end{split}
+\end{equation}
+ and on the other wing we have some similiar :
+(L:783)
+\begin{equation}
+\begin{split}
+&\left[\hat{S }^\dagger \hat{B }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]\\
+&=\hbar \left(\hat{S }^\dagger \hat{B }(t )\hat{S }\hat{B }^\dagger (t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }+\hat{S }^\dagger \hat{B }(t )\hat{S }^\dagger \hat{B }(t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }-\hat{S }^\dagger \hat{B }(t )\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t ')-\hat{S }^\dagger \hat{B }(t )\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t ')\right)\\
+&-\hbar \left(\hat{S }\hat{B }^\dagger (t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t )+\hat{S }^\dagger \hat{B }(t ')\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t )-\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }\hat{B }^\dagger (t ')\hat{S }^\dagger \hat{B }(t )-\hat{\rho }_{S }(t )\hat{\rho }_{B }\hat{S }^\dagger \hat{B }(t ')\hat{S }^\dagger \hat{B }(t )\right)\end{split}
+\end{equation}
+ re arranging it to :
+(L:808)
+\begin{equation}
+\begin{split}
+\\
+&=\hbar \left(\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }+\hat{S }^\dagger \hat{S }^\dagger \hat{\rho }_{S }(t )\hat{B }(t )\hat{B }(t ')\hat{\rho }_{B }-\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\hat{B }(t )\hat{\rho }_{B }\hat{B }^\dagger (t ')-\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }^\dagger \hat{B }(t )\hat{\rho }_{B }\hat{B }(t ')\right)\\
+&-\hbar \left(\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{B }^\dagger (t ')\hat{\rho }_{B }\hat{B }(t )+\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }^\dagger \hat{B }(t ')\hat{\rho }_{B }\hat{B }(t )-\hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger \hat{\rho }_{B }\hat{B }^\dagger (t ')\hat{B }(t )-\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }^\dagger \hat{\rho }_{B }\hat{B }(t ')\hat{B }(t )\right)\end{split}
+\end{equation}
+\subsection{the particle trace }
+ assume there is no particle in the bath :
+(L:827)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }(t ')\hat{\rho }_{B }\right]&=\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]=0\ \ \ \ ,\ \ \ \ \forall t ,t '\end{split}
+\end{equation}
+ with this only selective are left over, like 
+(L:839)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{S }B (t )^\dagger ,\left[\hat{H }(t '),\hat{\rho }_{B }\hat{\rho }_{S }(t )\right]\right]&=\hbar \hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]\\
+&-\hbar \hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{\rho }_{B }\hat{B }(t ')\right]\\
+&-\hbar \hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\text{Tr}_{B }\left[\hat{B }(t ')\hat{\rho }_{B }\hat{B }^\dagger (t )\right]\\
+&+\hbar \hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }\text{Tr}_{B }\left[\hat{\rho }_{B }\hat{B }(t ')\hat{B }^\dagger (t )\right]\\
+\end{split}
+\end{equation}
+ and on the other side there is  :
+(L:854)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{S }^\dagger \hat{B }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]&=\hbar \hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\\
+&-\hbar \hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\text{Tr}_{B }\left[\hat{B }(t )\hat{\rho }_{B }\hat{B }^\dagger (t ')\right]\\
+&-\hbar \hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{\rho }_{B }\hat{B }(t )\right]\\
+&+\hbar \hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger \text{Tr}_{B }\left[\hat{\rho }_{B }\hat{B }^\dagger (t ')\hat{B }(t )\right]\\
+\end{split}
+\end{equation}
+ now it says that there is  ciclic properties of trace :
+ which paiscally means that : 
+(L:874)
+\begin{equation}
+\begin{split}
+\text{Tr}\left[\hat{A }\hat{B }\hat{C }\hat{D }\right]=\text{Tr}\left[\hat{B }\hat{C }\hat{D }\hat{A }\right]=\text{Tr}\left[\hat{C }\hat{D }\hat{A }\hat{B }\right]=\text{Tr}\left[\hat{D }\hat{A }\hat{B }\hat{C }\right]\end{split}
+\end{equation}
+ rearangement shows : 
+(L:881)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{S }B (t )^\dagger ,\left[\hat{H }(t '),\hat{\rho }_{B }\hat{\rho }_{S }(t )\right]\right]&=\hbar \hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]-\hbar \hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]\\
+&+\hbar \hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }\text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]-\hbar \hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]\\
+\\
+&=\hbar \left(\hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )-\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]\\
+&+\hbar \left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]\end{split}
+\end{equation}
+ and
+(L:899)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{S }^\dagger \hat{B }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]&=\hbar \hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]-\hbar \hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\\
+&+\hbar \hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger \text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]-\hbar \hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]\\
+\\
+&=\hbar \left(\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\\
+&+\hbar \left(\hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger -\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]\end{split}
+\end{equation}
+ since we like to see how this works with the system 
+ hamiltonian , we would like to continue
+ jobs at \eqref{expandedHamComute}
+ and then what it give us is that : 
+(L:927)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{H }(t ),\left[\hat{H }(t '),\hat{\rho }_{S }(t )\hat{\rho }_{B }\right]\right]&=\hbar ^{2}\left(\hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )-\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]\\
+&+\hbar ^{2}\left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]\\
+&+\hbar ^{2}\left(\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\\
+&+\hbar ^{2}\left(\hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger -\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]\end{split}
+\end{equation}
+ so that is it 
+ \subsection{The expansion of the integrand of the master equation}
+ now we look back to the integration mentioned at the\eqref{eqDensity}
+ for convenince , we could have that :  
+(L:951)
+\begin{equation}
+\begin{split}
+F (t )=\int _{0}^{t }\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\bold{d}t '\\
+G (t )=\int _{0}^{t }\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]\bold{d}t '\\
+\end{split}
+\end{equation}
+ and if we take the conjugate , it some how
+ just exchange the 
+ $ t ' $  and  
+ $ t  $  I think the density matrix has its trace elements summed to 1
+ but conjugation of the operator 
+ $ \hat{B } $  which is not promissed to be hermitian will look like : 
+(L:967)
+\begin{equation}
+\begin{split}
+\hat{B }^*(t )&=\sum _{k }g _{k }\hat{a }_{k }^*\ee ^{\ii \omega _{k }t }\\
+(\hat{B }^\dagger (t ))^*&=\sum _{k }g _{k }^*(\hat{a }^\dagger _{k })^*\ee ^{-\ii \omega _{k }t }\end{split}
+\end{equation}
+ we know that for the system
+(L:980)
+\begin{equation}
+\begin{split}
+\hat{B }(t )\hat{B }^\dagger (t ')&=\sum _{k }\sum _{k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\hat{a }_{k }\hat{a }^\dagger _{k '}\\
+\left(\hat{B }(t )\hat{B }^\dagger (t ')\right)^*&=\sum _{k }\sum _{k '}g _{k }g _{k '}^*\ee ^{\ii (\omega _{k }t -\omega _{k '}t ')}(\hat{a }_{k }\hat{a }^\dagger _{k '})^*\\
+&=\sum _{k '}\sum _{k }g _{k }^*g _{k }\ee ^{-\ii (\omega _{k '}t '-\omega _{k }t )}(\hat{a }_{k })^*(\hat{a }^\dagger _{k '})^*\end{split}
+\end{equation}
+ so I didn't get this . 
+ in the perspective of trace : 
+(L:1004)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]&=\sum _{n }\langle n |\sum _{k }\sum _{k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\hat{a }_{k }\hat{a }^\dagger _{k '}\sum _{i }p _{i }|i \rangle \langle i ||n \rangle \\
+&=\sum _{n }\langle n |\sum _{k }\sum _{k '}g _{k }^*g _{k '}p _{n }\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\hat{a }_{k }\hat{a }^\dagger _{k '}|n \rangle \\
+&=\sum _{n }\langle n |\sum _{k }g _{k }^*g _{k }p _{n }\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\hat{a }_{k }\hat{a }^\dagger _{k }|n \rangle \end{split}
+\end{equation}
+ this expessionis kind of all real(except 
+ the expotential part) if 
+ there the , 
+ $ \hat{\rho }_{B }=\sum _{i }|i \rangle \langle i |p _{i } $  is true 
+ , if so turning it around would be like
+(this might not be true , need to recheck ): 
+(L:1038)
+\begin{equation}
+\begin{split}
+\left(\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\right)^*&=\sum _{n }\langle n |\sum _{k }g _{k }^*g _{k }p _{n }\ee ^{-\ii (\omega _{k '}t '-\omega _{k }t )}\hat{a }_{k }\hat{a }^\dagger _{k }|n \rangle \\
+&=\text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]\end{split}
+\end{equation}
+ and this gives me a little 
+ acceptability to the expression : 
+(L:1057)
+\begin{equation}
+\begin{split}
+F (t )^*&=\int _{0}^{t }\left(\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]\right)^*\bold{d}t '\\
+&=\int _{0}^{t }\left(\text{Tr}_{B }\left[\hat{B }(t ')\hat{B }^\dagger (t )\hat{\rho }_{B }\right]\right)\bold{d}t '\\
+G (t )^*&=\int _{0}^{t }\left(\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]\right)^*\bold{d}t '\\
+&=\int _{0}^{t }\text{Tr}_{B }\left[\hat{B }^\dagger (t )\hat{B }(t ')\hat{\rho }_{B }\right]\bold{d}t '\\
+\end{split}
+\end{equation}
+ so we have that :
+(L:1079)
+\begin{equation}
+\begin{split}
+\label{sysRhoDerTime}\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\left(\hat{S }\hat{S }^\dagger \hat{\rho }_{S }(t )-\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)G (t )^*\\
+&-\left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)F (t )\\
+^*&-\left(\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)F (t )\\
+&-\left(\hat{\rho }_{S }(t )\hat{S }\hat{S }^\dagger -\hat{S }^\dagger \hat{\rho }_{S }(t )\hat{S }\right)G (t )\end{split}
+\end{equation}
+\subsection{The bath specification}
+ the initial vacuum state of a bath is like :
+(L:1098)
+\begin{equation}
+\begin{split}
+\hat{\rho }_{B }&=\left(|0\rangle |0\rangle ......\right)\otimes \left(\langle 0|\langle 0|......\right)\end{split}
+\end{equation}
+ so that : 
+(L:1109)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]&=\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\left(|0\rangle |0\rangle ......\right)\otimes \left(\langle 0|\langle 0|......\right)\right]\\
+\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]&=\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\left(|0\rangle |0\rangle ......\right)\otimes \left(\langle 0|\langle 0|......\right)\right]\end{split}
+\end{equation}
+ calling some bath states as 
+ $ \{|b \rangle \} $  then we can say : 
+(L:1141)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]&=\sum _{b }\langle b |\hat{B }(t )\hat{B }^\dagger (t ')\left(|0\rangle |0\rangle ......\right)\otimes \left(\langle 0|\langle 0|......\right)|b \rangle \\
+&=\left(\langle 0|\langle 0|...\right)\sum _{b }|b \rangle \langle b |\hat{B }(t )\hat{B }^\dagger (t ')\left(|0\rangle |0\rangle ...\right)\\
+&=\left(\langle 0|\langle 0|...\right)\hat{B }(t )\hat{B }^\dagger (t ')\left(|0\rangle |0\rangle ...\right)\end{split}
+\end{equation}
+ as well as : 
+(L:1176)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]&=\left(\langle 0|\langle 0|...\right)\hat{B }^\dagger (t ')\hat{B }(t )\left(|0\rangle |0\rangle ...\right)\end{split}
+\end{equation}
+ so lets shoot them up : 
+(L:1190)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]&=\left(\langle 0|\langle 0|...\right)\sum _{k ,k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\hat{a }_{k }\hat{a }^\dagger _{k '}\left(|0\rangle |0\rangle ...\right)\\
+&=\sum _{k ,k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\left(\langle 0|\langle 0|...\right)\hat{a }_{k }\hat{a }^\dagger _{k '}\left(|0\rangle |0\rangle ...\right)\end{split}
+\end{equation}
+(L:1216)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }^\dagger (t ')\hat{B }(t )\hat{\rho }_{B }\right]&=\sum _{k ',k }g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\left(\langle 0|\langle 0|...\right)\hat{a }^\dagger _{k '}\hat{a }_{k }\left(|0\rangle |0\rangle ...\right)\end{split}
+\end{equation}
+ with
+ $ \hat{a }_{k }\hat{a }^\dagger _{k '}=\hat{a }^\dagger _{k '}\hat{a }_{k }+\delta _{k ,k '} $ (L:1236)
+\begin{equation}
+\begin{split}
+\text{Tr}_{B }\left[\hat{B }(t )\hat{B }^\dagger (t ')\hat{\rho }_{B }\right]&=\sum _{k ,k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\delta _{k ,k '}+\sum _{k ,k '}g _{k }^*g _{k '}\ee ^{-\ii (\omega _{k }t -\omega _{k '}t ')}\left(\langle 0|\langle 0|...\right)\hat{a }^\dagger _{k '}\hat{a }_{k }\left(|0\rangle |0\rangle ...\right)\\
+&=\sum _{k }|g _{k }|^{2}\ee ^{-\ii \omega _{k (t -t ')}}\end{split}
+\end{equation}
+ so it gives the things to the 
+ $ F (t ) $  and we have : 
+(L:1263)
+\begin{equation}
+\begin{split}
+F (t )&=\sum _{k }|g _{k }|^{2}\int _{0}^{t }\ee ^{-\ii \omega _{k (t -t ')}}\bold{d}t '\\
+G (t )&=0\end{split}
+\end{equation}
+\subsection{Transition to the continuum}
+ now say 
+(L:1278)
+\begin{equation}
+\begin{split}
+J (\omega )&=\sum _{l }|g _{l |}^{2}\delta (\omega -\omega _{l })\end{split}
+\end{equation}
+ reditriubute the k index to the 
+ $ J (\omega ) $  int the function 
+ $ F (t ) $  gives  
+(L:1288)
+\begin{equation}
+\begin{split}
+F (t )&=\int _{0}^{\infty }\bold{d}\omega J (\omega )\int _{0}^{t }\bold{d}t '\ee ^{-\ii \omega (t -t ')}\end{split}
+\end{equation}
+ now lets use 
+ $ \tau =t -t ' $  so 
+ $ \bold{d}\tau =-\bold{d}t ' $  then it gives 
+(L:1301)
+\begin{equation}
+\begin{split}
+\int _{0}^{t }\bold{d}t '=-\int _{t }^{0}\bold{d}\tau =\int _{0}^{t }\bold{d}\tau \end{split}
+\end{equation}
+ now it writes that  
+(L:1308)
+\begin{equation}
+\begin{split}
+\label{FtTau}F (t )&=\int _{0}^{\infty }\bold{d}\omega J (\omega )\int _{0}^{t }\bold{d}\tau \ee ^{-\ii \omega \tau }\end{split}
+\end{equation}
+\subsection{The Markov approximation}
+ so targeting the good old equation \eqref{eqDensity}
+ we know that we like to have the t to be infinite on the \eqref{FtTau},so
+(L:1320)
+\begin{equation}
+\begin{split}
+\int _{0}^{\infty }\bold{d}\tau \ee ^{-\ii \omega \tau }&=\lim _{\eta \rightarrow 0^{+}}\int _{0}^{\infty }\bold{d}\tau \ee ^{-\ii \omega \tau -\eta \tau }\\
+&=\lim _{\eta \rightarrow 0^{+}}\frac{1}{\eta +\ii \omega }\\
+&=\lim _{\eta \rightarrow 0^{+}}\frac{\eta -\ii \omega }{\eta ^{2}+\omega ^{2}}\\
+&=\lim _{\eta \rightarrow 0^{+}}\frac{\eta }{\eta ^{2}+\omega ^{2}}-\lim _{\eta \rightarrow 0^{+}}\frac{\ii \omega }{\eta ^{2}+\omega ^{2}}\\
+&=\pi \delta (\omega )-\ii \text{P }\frac{1}{\omega }\end{split}
+\end{equation}
+ this P stands for Cauchy pricipal part, then we have:
+(L:1342)
+\begin{equation}
+\begin{split}
+F &=\pi \int _{0}^{\infty }\bold{d}\omega J (\omega )\delta (\omega )-\ii \text{P }\int _{0}^{\infty }\bold{d}\omega J (\omega )\frac{1}{\omega }\end{split}
+\end{equation}
+\subsection{Final form }
+(L:1352)
+\begin{equation}
+\begin{split}
+F =\frac{\gamma +\ii \varepsilon }{2}\\
+\gamma \equiv 2\pi \int _{0}^{\infty }\bold{d}\omega J (\omega )\delta (\omega )\\
+\varepsilon \equiv -2\text{P }\int _{0}^{\infty }\bold{d}\omega J (\omega )\frac{1}{\omega }\end{split}
+\end{equation}
+ with 
+ $ G =0 $  in mind we have that equation 
+\eqref{sysRhoDerTime} evolves into
+(L:1360)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=-\left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\frac{\gamma -\ii \varepsilon }{2}\\
+&-\left(\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\frac{\gamma +\ii \varepsilon }{2}\\
+\\
+&=-\frac{\gamma }{2}\left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger +\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\\
+&+\frac{\ii \varepsilon }{2}\left(\hat{\rho }_{S }(t )\hat{S }^\dagger \hat{S }-\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger -\hat{S }^\dagger \hat{S }\hat{\rho }_{S }(t )+\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger \right)\end{split}
+\end{equation}
+ some how it says that 
+ $ \varepsilon =0 $  which can be achived by a good choice of denisty state
+ choosing , for example , we can extend the lower limit of integration to 
+ $ -\infty  $  noticing that :  
+ and eventually : 
+(L:1386)
+\begin{equation}
+\begin{split}
+\label{explicitTimedRho}\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=\gamma \left(\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger -\frac{1}{2}\{\hat{S }^\dagger \hat{S },\hat{\rho }_{S }(t )\}\right)\end{split}
+\end{equation}
+ so back in the original
+(L:1396)
+\begin{equation}
+\begin{split}
+\hat{\rho }_{S }(t )&=\ee ^{\ii \hat{H }_{S }t /\hbar }\hat{\rho }_{S }\ee ^{-\ii \hat{H }_{S }t /\hbar }\end{split}
+\end{equation}
+ and derivationg it will be looking like 
+(L:1406)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }(t )}{\bold{d}t }&=\frac{\ii }{\hbar }\hat{H }_{S }\ee ^{\ii \hat{H }_{S }t /\hbar }\hat{H }_{S }\hat{\rho }_{S }\ee ^{-\ii \hat{H }_{S }t /\hbar }+\ee ^{\ii \hat{H }_{S }t /\hbar }\dfrac{\bold{d}\hat{\rho }_{S }}{\bold{d}t }\ee ^{-\ii \hat{H }_{S }t /\hbar }-\frac{\ii }{\hbar }\ee ^{\ii \hat{H }_{S }t /\hbar }\hat{\rho }_{S }\hat{H }_{S }\ee ^{-\ii \hat{H }_{S }t /\hbar }\\
+&=\frac{\ii }{\hbar }\ee ^{\ii \hat{H }_{S }t /\hbar }\left[\hat{H }_{S },\hat{\rho }_{S }\right]\ee ^{-\ii \hat{H }_{S }t /\hbar }+\ee ^{\ii \hat{H }_{S }t /\hbar }\dfrac{\bold{d}\hat{\rho }_{S }}{\bold{d}t }\ee ^{-\ii \hat{H }_{S }t /\hbar }\end{split}
+\end{equation}
+ also , there  is that : 
+(L:1434)
+\begin{equation}
+\begin{split}
+\label{noExplicitTimeRho}\left(\hat{S }\hat{\rho }_{S }(t )\hat{S }^\dagger -\frac{1}{2}\{\hat{S }^\dagger \hat{S },\hat{\rho }_{S }(t )\}\right)&=\ee ^{\ii \hat{H }_{S }t /\hbar }\left(\hat{S }\hat{\rho }_{S }\hat{S }^\dagger -\frac{1}{2}\{\hat{S }^\dagger \hat{S },\hat{\rho }_{S }\}\right)\ee ^{-\ii \hat{H }_{S }t /\hbar }\end{split}
+\end{equation}
+ so connecting this with the explicit timed \eqref{explicitTimedRho} 
+ and the no explicit timed \eqref{noExplicitTimeRho}
+ we have : 
+(L:1450)
+\begin{equation}
+\begin{split}
+\gamma \left(\hat{S }\hat{\rho }_{S }\hat{S }^\dagger -\frac{1}{2}\{\hat{S }^\dagger \hat{S },\hat{\rho }_{S }\}\right)&=\frac{\ii }{\hbar }\left[\hat{H }_{S },\hat{\rho }_{S }\right]+\dfrac{\bold{d}\hat{\rho }_{S }}{\bold{d}t }\end{split}
+\end{equation}
+ and arranging it gives : 
+(L:1462)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }}{\bold{d}t }&=-\frac{\ii }{\hbar }\left[\hat{H }_{S },\hat{\rho }_{S }\right]+\gamma \left(\hat{S }\hat{\rho }_{S }\hat{S }^\dagger -\frac{1}{2}\{\hat{S }^\dagger \hat{S },\hat{\rho }_{S }\}\right)\end{split}
+\end{equation}
+ \section{conclusion}
+ so just with several 
+ $ \hat{L } $  instead of
+ $ \hat{S } $  we can have 
+(L:1479)
+\begin{equation}
+\begin{split}
+\dfrac{\bold{d}\hat{\rho }_{S }}{\bold{d}t }&=-\frac{\ii }{\hbar }\left[\hat{H }_{S },\hat{\rho }_{S }\right]+\gamma \sum _{j }\left(\hat{L }_{j }\hat{\rho }_{S }\hat{L }_{j }^\dagger -\frac{1}{2}\{\hat{L }_{j }^\dagger \hat{L }_{j },\hat{\rho }_{S }\}\right)\end{split}
+\end{equation}
